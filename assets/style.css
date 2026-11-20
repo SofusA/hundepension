@@ -48,6 +48,7 @@ footer {
   padding: 1.5rem;
   background: var(--footer);
   text-align: center;
+  border-radius: 8px;
 }
 
 footer p {
