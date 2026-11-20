@@ -34,7 +34,7 @@ jobs:
         working-directory: website
         run: |
           cargo run \
-            --manifest-path ../generator/Cargo.toml \
+            --manifest-path ../generator/static-website-builder/Cargo.toml \
             --release \
             -- build \
             --values-file site-github.json
@@ -46,9 +46,7 @@ jobs:
 
   deploy:
     needs: build
-
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
