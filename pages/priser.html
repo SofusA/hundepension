@@ -1,8 +1,8 @@
-@defer (base.html; title="Priser") {
+@defer (base.html; root=root; title="Priser") {
   <header>
     @defer (navigation.html; root=root) {}
 
-    <img src="/assets/priser.jfif" alt="" class="hero" />
+    <img src="{{ root }}assets/priser.jfif" alt="" class="hero" />
   </header>
 
   <main>

@@ -1,8 +1,12 @@
-@defer (base.html; title="Dyrehavens Hundepension og Dagpasning") {
+@defer (base.html; root=root; title="Dyrehavens Hundepension og Dagpasning") {
   <header>
     @defer (navigation.html; root=root) {}
 
-    <img src="/assets/forside.jfif" alt="Hunde i Dyrehaven" class="hero" />
+    <img
+      src="{{ root }}assets/forside.jfif"
+      alt="Hunde i Dyrehaven"
+      class="hero"
+    />
   </header>
 
   <main>
