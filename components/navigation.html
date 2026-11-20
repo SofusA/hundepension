@@ -1,8 +1,21 @@
-<nav>
-  <a href="{{ root }}">Forside</a>
-  <a href="{{ root }}vores-rutiner/">Vores rutiner</a>
-  <a href="{{ root }}vores-erfaringer/">Vores erfaringer</a>
-  <a href="{{ root }}priser/">Priser</a>
-  <a href="{{ root }}det-med-smaat/">Det med småt</a>
-  <a href="{{ root }}kontakt/">Kontakt</a>
-</nav>
+<header>
+  <nav>
+    <a class="logo" href="{{ root }}">Dyrehavens Hundepension</a>
+
+    <button class="nav-toggle" aria-label="Menu">☰</button>
+
+    <div class="nav-links">
+      <a href="{{ root }}vores-rutiner/">Vores rutiner</a>
+      <a href="{{ root }}vores-erfaringer/">Vores erfaringer</a>
+      <a href="{{ root }}priser/">Priser</a>
+      <a href="{{ root }}det-med-smaat/">Det med småt</a>
+      <a href="{{ root }}kontakt/">Kontakt</a>
+    </div>
+  </nav>
+
+  <script>
+    document.querySelector(".nav-toggle").addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.toggle("open");
+    });
+  </script>
+</header>

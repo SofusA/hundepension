@@ -4,26 +4,45 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dyrehavens Hundepension og Dagpasning</title>
-  <link rel="stylesheet" href="/assets/style.css" />
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐕</text></svg>"
+  />
+  <link rel="stylesheet" href="/assets/style.css?version=1" />
 </head>
 
   <body>
     
   <header>
-    <nav>
-  <a href="/">Forside</a>
-  <a href="/vores-rutiner/">Vores rutiner</a>
-  <a href="/vores-erfaringer/">Vores erfaringer</a>
-  <a href="/priser/">Priser</a>
-  <a href="/det-med-smaat/">Det med småt</a>
-  <a href="/kontakt/">Kontakt</a>
-</nav>
+  <nav>
+    <a class="logo" href="/">Dyrehavens Hundepension</a>
 
+    <button class="nav-toggle" aria-label="Menu">☰</button>
 
-    <img src="/assets/forside.jfif" alt="Hunde i Dyrehaven" class="hero" />
-  </header>
+    <div class="nav-links">
+      <a href="/vores-rutiner/">Vores rutiner</a>
+      <a href="/vores-erfaringer/">Vores erfaringer</a>
+      <a href="/priser/">Priser</a>
+      <a href="/det-med-smaat/">Det med småt</a>
+      <a href="/kontakt/">Kontakt</a>
+    </div>
+  </nav>
+
+  <script>
+    document.querySelector(".nav-toggle").addEventListener("click", () => {
+      document.querySelector(".nav-links").classList.toggle("open");
+    });
+  </script>
+</header>
+
 
   <main>
+    <img
+      src="/assets/forside.jfif"
+      alt="Hunde i Dyrehaven"
+      class="hero"
+      style="object-position: top"
+    />
     <h1>Dyrehavens hundepension og -dagpasning</h1>
 
     <p>
@@ -62,7 +81,13 @@
     </p>
   </main>
 
-    <footer>Dyrehavens Hundepension og Dagpasning</footer>
+    <footer>
+  <p><strong>Dyrehavens Hundepension og Dagpasning</strong></p>
+
+  <p>📞 <a href="tel:+4560809797">60 80 97 97</a></p>
+
+  <p>📍 Wesselsmindevej 17, 2850 Nærum</p>
+</footer>
 
   
 <script>
