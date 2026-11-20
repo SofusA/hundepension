@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout website
+        uses: actions/checkout@v5
+        with:
+          path: website
+
+      - name: Checkout static site generator
+        uses: actions/checkout@v5
+        with:
+          repository: sofusa/skabelon
+          path: generator
+
+      - name: Build site
+        working-directory: website
+        run: |
+          cargo run \
+            --manifest-path ../generator/Cargo.toml \
+            --release \
+            -- build \
+            --values-file site-github.json
+
+      - name: Upload Pages Artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: website/build
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
